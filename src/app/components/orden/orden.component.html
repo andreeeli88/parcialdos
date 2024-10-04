@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Carrito de Compras</h2>
+    <table class="table table-hover" style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+      <thead style="background-color: #343a40; color: white;">
+        <tr>
+          <th style="padding: 12px; border-bottom: 2px solid #ddd;">Nombre</th>
+          <th style="padding: 12px; border-bottom: 2px solid #ddd;">Descripción</th>
+          <th style="padding: 12px; border-bottom: 2px solid #ddd;">Precio</th>
+          <th style="padding: 12px; border-bottom: 2px solid #ddd;">Cantidad</th>
+          <th style="padding: 12px; border-bottom: 2px solid #ddd;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of carrito" style="border-bottom: 1px solid #ddd; text-align: left;">
+          <td style="padding: 10px;">{{ item.nombre }}</td>
+          <td style="padding: 10px;">{{ item.descripcion }}</td>
+          <td style="padding: 10px;">{{ item.precio }}</td>
+          <td style="padding: 10px;">{{ item.cantidad }}</td>
+          <td>
+            <button (click)="eliminarProducto(item.id)" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="text-right">
+      <button (click)="confirmarOrden()" class="btn btn-success">Confirmar Orden</button>
+    </div>
+  </div>
+  
